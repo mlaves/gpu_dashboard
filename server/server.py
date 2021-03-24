@@ -64,17 +64,18 @@ def data_loop():
     listener = Listener(address, authkey=b'secret password')
     print("Waiting for incoming connection...")
 
-    while True:
-        conn = listener.accept()  # dispatch listeners from here
-        print('Connection accepted from', listener.last_accepted)
-        p = Process(target=connection_handler, args=(conn,))
-        p.start()
-        processes.append(p)
-        connections.append(conn)
-
-    # [c.close() for c in connections]
-    # [p.terminate() for p in processes]
-    # listener.close()
+    try:
+        while True:
+            conn = listener.accept()  # dispatch listeners from here
+            print('Connection accepted from', listener.last_accepted)
+            p = Process(target=connection_handler, args=(conn,))
+            p.start()
+            processes.append(p)
+            connections.append(conn)
+    except KeyboardInterrupt:
+        [c.close() for c in connections]
+        [p.terminate() for p in processes]
+        listener.close()
 
 
 def main():
