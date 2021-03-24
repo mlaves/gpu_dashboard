@@ -12,7 +12,7 @@ smi_options = [
 
 
 def main():
-    address = ('equinox.et8.tuhh.de', 6060)
+    address = ('hostname', 6060)
     hostname = socket.gethostname()
 
     while True:

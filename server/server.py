@@ -60,7 +60,7 @@ def data_loop():
     processes = []
     connections = []
 
-    address = ('equinox.et8.tuhh.de', 6060)     # family is deduced to be 'AF_INET'
+    address = ('hostname', 6060)     # family is deduced to be 'AF_INET'
     listener = Listener(address, authkey=b'secret password')
     print("Waiting for incoming connection...")
 
