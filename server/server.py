@@ -96,7 +96,7 @@ def main():
     main_process = Process(target=data_loop, args=())
 
     main_process.start()
-    app.run_server(host='equinox.et8.tuhh.de', debug=False)
+    app.run_server(host='hostname', debug=False)
     main_process.terminate()
 
 

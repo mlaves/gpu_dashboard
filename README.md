@@ -1,4 +1,4 @@
-# gpu_dash
+# gpu_dashboard
 
 ## Contact
 

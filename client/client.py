@@ -4,7 +4,7 @@ import socket
 import subprocess
 
 
-smi = 'nvidia-smi'
+smi = ['nvidia-smi']
 smi_options = [
     '--query-gpu=timestamp,name,temperature.gpu,utilization.gpu,utilization.memory,memory.total,memory.free,memory.used',
     '--format=csv'
@@ -28,7 +28,7 @@ def main():
 
     try:
         while True:
-            result = subprocess.run([smi]+smi_options, capture_output=True)
+            result = subprocess.run(smi+smi_options, capture_output=True)
             result = str(result.stdout).split('\\n')
             result = [r.split(',') for r in result[1:-1]]
             [print(r) for r in result]
