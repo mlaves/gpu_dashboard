@@ -82,8 +82,8 @@ def main():
     interval = 5
     app.layout = html.Div(
         [
-            html.H1(children='Hello GPU'),
-            html.Div(children='A dashboard for MTEC GPU utilization.'),
+            html.H1(children='MTEC GPU'),
+            # html.Div(children='A dashboard for GPU utilization.'),
 
             dcc.Graph(id='live-graph', animate=True),
             dcc.Interval(
